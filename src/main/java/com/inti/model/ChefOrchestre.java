@@ -32,4 +32,18 @@ public class ChefOrchestre {
 	private double cachet;
 	private String commentaires;
 	
+	
+	public ChefOrchestre(String nom, String prenom, LocalDate dateNaissance, String nationnalite, double cachet,
+			String commentaires) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.dateNaissance = dateNaissance;
+		this.nationnalite = nationnalite;
+		this.cachet = cachet;
+		this.commentaires = commentaires;
+	}
+	
+	
+	
 }
