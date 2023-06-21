@@ -25,7 +25,7 @@ public class LieuController {
     }
 
     @GetMapping("/lieux/ajouter")
-    public String showAddLieuForm(Model model) {
+    public String addLieu(Model model) {
         Lieu lieu = new Lieu();
         model.addAttribute("lieu", lieu);
         return "ajoutLieu";
