@@ -39,7 +39,7 @@ public class ChefOrchestre {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.dateNaissance = dateNaissance;
-		this.nationnalite = nationnalite;
+		this.nationalite = nationnalite;
 		this.cachet = cachet;
 		this.commentaires = commentaires;
 	}
