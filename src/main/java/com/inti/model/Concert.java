@@ -22,6 +22,12 @@ public class Concert {
 	private String nom;
 	private LocalDate date;
 	
+	public Concert(String nom, LocalDate date) {
+		super();
+		this.nom = nom;
+		this.date = date;
+	}
+	
 	
 	public Concert(String nom, LocalDate date) {
 		super();
