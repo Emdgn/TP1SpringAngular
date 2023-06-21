@@ -10,7 +10,8 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-// modification test
+
+
 @Entity
 @Table
 @Data @NoArgsConstructor @AllArgsConstructor
@@ -22,7 +23,7 @@ public class ChefOrchestre {
 	private String nom;
 	private String prenom;
 	private LocalDate dateNaissance;
-	private String nationnalite;
+	private String nationalite;
 	private double cachet;
 	private String commentaires;
 	
@@ -36,7 +37,7 @@ public class ChefOrchestre {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.dateNaissance = dateNaissance;
-		this.nationnalite = nationnalite;
+		this.nationalite = nationnalite;
 		this.cachet = cachet;
 		this.commentaires = commentaires;
 	}
