@@ -31,6 +31,7 @@ public class Oeuvre {
 	
 
 	@ManyToOne
+	@JoinColumn(name="numChef")
 	private ChefOrchestre chefOrchestre;
 
 	
