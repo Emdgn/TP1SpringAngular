@@ -25,5 +25,15 @@ public class Soliste {
 	private String prenom;
 	private LocalDate dateNaissance;
 	private String nationalite;
+	
+	
+	public Soliste(String nom, String prenom, LocalDate dateNaissance, String nationalite) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.dateNaissance = dateNaissance;
+		this.nationalite = nationalite;
+	}
 
+	
 }
