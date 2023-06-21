@@ -9,7 +9,6 @@ import jakarta.persistence.GenerationType;
 
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 
@@ -20,11 +19,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table
-
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-
+@Data @AllArgsConstructor @NoArgsConstructor
 public class Concert {
 
 	@Id
@@ -49,6 +44,8 @@ public class Concert {
 		this.nom = nom;
 		this.date = date;
 
+
 	}
 
 }
+

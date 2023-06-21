@@ -7,7 +7,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -27,7 +26,7 @@ public class ChefOrchestre {
 	private String nom;
 	private String prenom;
 	private LocalDate dateNaissance;
-	private String nationnalite;
+	private String nationalite;
 	private double cachet;
 	private String commentaires;
 	
@@ -41,7 +40,7 @@ public class ChefOrchestre {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.dateNaissance = dateNaissance;
-		this.nationnalite = nationnalite;
+		this.nationalite = nationnalite;
 		this.cachet = cachet;
 		this.commentaires = commentaires;
 	}
