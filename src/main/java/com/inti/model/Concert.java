@@ -29,12 +29,6 @@ public class Concert {
 	}
 	
 	
-	public Concert(String nom, LocalDate date) {
-		super();
-		this.nom = nom;
-		this.date = date;
-	}
-	
 	
 	
 }
