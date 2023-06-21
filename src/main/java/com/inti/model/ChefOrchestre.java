@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+// modification test
 @Entity
 @Table
 @Data @NoArgsConstructor @AllArgsConstructor
