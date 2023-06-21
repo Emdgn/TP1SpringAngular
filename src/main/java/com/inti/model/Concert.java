@@ -13,9 +13,13 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table
-@Data @NoArgsConstructor @AllArgsConstructor
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+
 public class Concert {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int num;
@@ -26,6 +30,7 @@ public class Concert {
 		super();
 		this.nom = nom;
 		this.date = date;
+
 	}
 	
 }
