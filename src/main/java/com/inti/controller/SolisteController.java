@@ -51,26 +51,6 @@ public class SolisteController {
 		isr.save(soliste);
 		return "redirect:/listeSoliste";
 	}
-	
-	/***
-	 * @GetMapping("modifierOeuvre/{id}")
-	public String modifierOeuvre(@PathVariable("id") int id, Model m)
-	{
-		m.addAttribute("o1", ior.getReferenceById(id));
-		
-		return "modifierOeuvre";
-	}
-	
-	@PostMapping("modifierOeuvre/{id}")
-	public String updateOeuvre(@PathVariable("id") int id, @ModelAttribute("oeuvre") Oeuvre o)
-	{
-		ior.save(o);
-		
-		return "redirect:/listeOeuvre";
-	}
-	 * 
-	 * 
-	 * 
-	 */
+
 
 }
