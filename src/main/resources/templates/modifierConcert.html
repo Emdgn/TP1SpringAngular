@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Creer un concert</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<body>
+<div>
+	<h1> Modifier le concert ! <span th:value="${c.nom}"></span></h1>
+</div>
+<div>
+	<form class="mx-1 mx-md-4" method="post" modelAttribute="concert">
+
+		<div class="d-flex flex-row align-items-center mb-4">
+			<i class="fas fa-user fa-lg me-3 fa-fw"></i>
+			<div class="form-outline flex-fill mb-0">
+				<label class="form-label" for="nom" >Nom du concert :</label>
+				<input type="text" name="nom" class="form-control" th:value="${c.nom}" />
+			</div>
+		</div>
+
+		<div class="d-flex flex-row align-items-center mb-4">
+			<i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+			<div class="form-outline flex-fill mb-0">
+				<label class="form-label" for="date">Date du concert:</label>
+				<input type="date" name="date" class="form-control" th:value="${c.date}"/>
+			</div>
+		</div>
+
+		<div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+			<button type="submit" class="btn btn-primary btn-lg">Register</button>
+			<button type="reset" class="btn btn-primary btn-lg">Reset</button>
+		</div>
+
+	</form>
+</div>
+</body>
+</html>
