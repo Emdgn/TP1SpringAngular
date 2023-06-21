@@ -11,7 +11,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
 import jakarta.persistence.JoinColumn;
-
 import jakarta.persistence.OneToOne;
 
 import jakarta.persistence.Table;
@@ -33,7 +32,7 @@ public class Concert {
 	private int num;
 	private String nom;
 	private LocalDate date;
-	
+
 
 	
 	@OneToMany(mappedBy = "concert")
@@ -49,6 +48,7 @@ public class Concert {
 		super();
 		this.nom = nom;
 		this.date = date;
+
 	}
 
 }

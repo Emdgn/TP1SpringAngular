@@ -31,7 +31,7 @@ public class ChefOrchestre {
 	private double cachet;
 	private String commentaires;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "chefOrchestre")
 	private List<Oeuvre>oeuvre;
 	
 	
