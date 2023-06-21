@@ -17,11 +17,9 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class Concert {
 
 	@Id
