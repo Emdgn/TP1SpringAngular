@@ -25,7 +25,7 @@ public class ChefOrchestre {
 	private String nom;
 	private String prenom;
 	private LocalDate dateNaissance;
-	private String nationnalite;
+	private String nationalite;
 	private double cachet;
 	private String commentaires;
 	
