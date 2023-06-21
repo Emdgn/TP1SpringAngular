@@ -1,9 +1,12 @@
 package com.inti.model;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,6 +24,9 @@ public class Lieu {
 	private String nom;
 	private String numerue;
 	private int nbrfaut;
+	
+	@OneToMany(mappedBy = "lieu")
+	private List<Concert> concerts;
 	
 	public Lieu(String nom, String numerue, int nbrfaut) {
 		super();
