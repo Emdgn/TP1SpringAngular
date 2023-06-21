@@ -26,14 +26,12 @@ public class ConcertController {
 	@PostMapping("creerConcert")
 	public String ajoutConcert(@ModelAttribute("concert")Concert c) {
 		icr.save(c);
-		return "listeConcert";
+		return "redirect:/listeConcert";
 	}
 	
 	@GetMapping("listeConcert")
 	public String Concert(Model m) {
 		m.addAttribute("listeC", icr.findAll());
-		System.out.println(icr.getConcertCount());
-		m.addAttribute("nbA", icr.getConcertCount() );
 		return "listeConcert";
 	}
 	
@@ -52,9 +50,9 @@ public class ConcertController {
 	}
 	
 	@PostMapping("modifierConcert/{num}")
-		public String modifierConcert(@ModelAttribute("concert")Concert c1,@PathVariable("num")int num) {
-		icr.save(c1);
-		return "listeConcert";		
+		public String modifierConcert(@ModelAttribute("concert")Concert c,@PathVariable("num")int num) {
+		icr.save(c);
+		return "redirect:/listeConcert";
 	}
 	
 }
