@@ -27,7 +27,7 @@ public class Oeuvre {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int numOeuvre;
 	private String nom;
-	private int duree;
+	private double duree;
 	
 
 	@ManyToOne

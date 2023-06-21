@@ -47,17 +47,19 @@ public class OeuvreController {
 		return "redirect:/listeOeuvre";
 	}
 	
-	@GetMapping("modifierOeuvre/{id}")
-	public String modifierOeuvre(@PathVariable("id") int id, Model m)
+	@GetMapping("modifierOeuvre/{numOeuvre}")
+	public String modifierOeuvre(@PathVariable("numOeuvre") int id, Model m)
 	{
 		m.addAttribute("o1", ior.getReferenceById(id));
+		
 		
 		return "modifierOeuvre";
 	}
 	
-	@PostMapping("modifierOeuvre/{id}")
-	public String updateOeuvre(@PathVariable("id") int id, @ModelAttribute("oeuvre") Oeuvre o)
+	@PostMapping("modifierOeuvre")
+	public String updateOeuvre(@ModelAttribute("oeuvre") Oeuvre o)
 	{
+		System.out.println(o);
 		ior.save(o);
 		
 		return "redirect:/listeOeuvre";
