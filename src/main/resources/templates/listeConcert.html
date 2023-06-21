@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Liste des concerts</title>
+</head>
+<body>
+<div>
+	<h1>Listes des concert</h1>
+</div>
+<div>
+<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">Nom du concert</th>
+				<th scope="col">Date du concert</th>
+				<th scope="col">Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+		
+			<tr th:each="concert : ${ listeC }">
+				<th scope="row" th:text="${concert.num}"></th>
+				<td th:text="${concert.nom}"></td>
+				<td th:text="${concert.date}"></td>
+				<td>
+					<a th:href="'deleteConcert/' + ${concert.idConcert}"><button type="button" class="btn btn-danger">Supprimer</button></a>
+					<a th:href="'modifierConcert/' + ${concert.idConcert}"><button type="button" class="btn btn-warning">Modifier</button></a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>

@@ -37,22 +37,22 @@ public class ConcertController {
 		return "listeConcert";
 	}
 	
-	@GetMapping("deleteActeur/{id}")
-		public String deleteConcert(@PathVariable("id")int id) {
-		Concert c=icr.getReferenceById(id);
+	@GetMapping("deleteConcert/{num}")
+		public String deleteConcert(@PathVariable("num")int num) {
+		Concert c=icr.getReferenceById(num);
 		icr.delete(c);
 		return "redirect:/listeConcert";
 		}
 	
-	@GetMapping("modifierConcert/{id}")
-		public String modifierConcert(@PathVariable("id")int id,Model m) {
-		Concert c=icr.getReferenceById(id);
+	@GetMapping("modifierConcert/{num}")
+		public String modifierConcert(@PathVariable("num")int num,Model m) {
+		Concert c=icr.getReferenceById(num);
 			m.addAttribute("c", c);
 		return "modifierConcert";
 	}
 	
-	@PostMapping("modifierConcert/{id}")
-		public String modifierConcert(@ModelAttribute("concert")Concert c1,@PathVariable("id")int id) {
+	@PostMapping("modifierConcert/{num}")
+		public String modifierConcert(@ModelAttribute("concert")Concert c1,@PathVariable("num")int num) {
 		icr.save(c1);
 		return "listeConcert";		
 	}
