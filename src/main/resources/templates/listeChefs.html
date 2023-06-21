@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" >
+
+<head>
+	<meta charset="UTF-8">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+	<title>Liste des chefs d'orchestre</title>
+</head>
+
+<body>
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">Id</th>
+				<th scope="col">Nom</th>
+				<th scope="col">prenom</th>
+				<th scope="col">Date de naissance</th>
+				<th scope="col">Nationalité</th>
+				<th scope="col">Cachet Demandé</th>
+				<th scope="col">Commentaires</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr th:each="chef : ${ chefs }">
+				<th scope="row" th:text="${chef.numChef}"></th>
+				<td th:text="${chef.nom}"></td>
+				<td th:text="${chef.prenom}"></td>
+				<td th:text="${chef.dateNaissance}"></td>
+				<td th:text="${chef.nationalite}"></td>
+				<td th:text="${chef.cachet}"></td>
+				<td th:text="${chef.commentaires}"></td>
+				<td><a th:href="'supprimerChef/' + ${chef.numChef}"><button type="button"
+							class="btn btn-danger">Supprimer</button></a></td>
+				<td><a th:href="'modifierChef/' + ${chef.numChef}"><button type="button"
+							class="btn btn-warning">Modifier</button></a></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+
+</html>
