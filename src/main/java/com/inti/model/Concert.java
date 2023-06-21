@@ -28,7 +28,4 @@ public class Concert {
 		this.date = date;
 	}
 	
-	
-	
-	
 }
