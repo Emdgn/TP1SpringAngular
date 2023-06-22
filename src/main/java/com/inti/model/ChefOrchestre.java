@@ -32,13 +32,13 @@ public class ChefOrchestre {
 	private List<Oeuvre>oeuvre;
 	
 	
-	public ChefOrchestre(String nom, String prenom, LocalDate dateNaissance, String nationnalite, double cachet,
+	public ChefOrchestre(String nom, String prenom, LocalDate dateNaissance, String nationalite, double cachet,
 			String commentaires) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
 		this.dateNaissance = dateNaissance;
-		this.nationalite = nationnalite;
+		this.nationalite = nationalite;
 		this.cachet = cachet;
 		this.commentaires = commentaires;
 	}

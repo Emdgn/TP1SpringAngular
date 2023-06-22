@@ -29,6 +29,18 @@
 				<input type="text" name="duree" class="form-control" />
 			</div>
 		</div>
+		
+		<select class="form-select" aria-label="Default select example" th:each="chef : ${ listeChef }">
+		  <option value="1" th:text="${ chef.nom }"></option>
+		</select>
+		
+		<select class="form-select" aria-label="Default select example" th:each="concert : ${ listeC }">
+		  <option value="1" th:text="${ concert.nom }"></option>
+		</select>
+		
+		<select class="form-select" size="3" multiple aria-label="size 3 select example" th:each="soliste : ${ listeS }">
+		  <option value="1" th:text="${ soliste.nom }"></option>
+		</select>
 
 		<div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
 			<button type="submit" class="btn btn-primary btn-lg">Enregistrer</button>

@@ -9,18 +9,29 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.inti.model.Oeuvre;
+import com.inti.repository.IChefOrchestreRepository;
+import com.inti.repository.IConcertRepository;
 import com.inti.repository.IOeuvreRepository;
+import com.inti.repository.ISolisteRepository;
 
 @Controller
 public class OeuvreController {
 	
 	@Autowired
 	IOeuvreRepository ior;
+	@Autowired
+	IChefOrchestreRepository icor;
+	@Autowired
+	IConcertRepository icr;
+	@Autowired
+	ISolisteRepository isr;
 	
 	@GetMapping("ajoutOeuvre")
-	public String ajoutOeuvre()
+	public String ajoutOeuvre(Model m)
 	{
-		
+		m.addAttribute("listeS", isr.findAll());
+		m.addAttribute("listeC", icr.findAll());
+		m.addAttribute("listeChef", icor.findAll());
 		return "ajoutOeuvre";
 	}
 	
