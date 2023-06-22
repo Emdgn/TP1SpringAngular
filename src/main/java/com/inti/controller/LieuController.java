@@ -21,7 +21,7 @@ public class LieuController {
     public String getAllLieux(Model model) {
         List<Lieu> lieux = ilr.findAll();
         model.addAttribute("lieux", lieux);
-        return "listeLieux";
+        return "lieux";
     }
 
     @GetMapping("ajouterLieu")
