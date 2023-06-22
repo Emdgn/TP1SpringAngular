@@ -1,5 +1,8 @@
 package com.inti.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,13 +12,27 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.inti.model.Concert;
+import com.inti.model.Oeuvre;
+import com.inti.model.Soliste;
+import com.inti.repository.IChefOrchestreRepository;
 import com.inti.repository.IConcertRepository;
+import com.inti.repository.ILieuRepository;
+import com.inti.repository.IOeuvreRepository;
+import com.inti.repository.ISolisteRepository;
 
 @Controller
 public class ConcertController {
 
 	@Autowired
 	IConcertRepository icr;
+	@Autowired
+	ILieuRepository ilr;
+	@Autowired
+	IOeuvreRepository ior;
+	@Autowired
+	IChefOrchestreRepository icor;
+	@Autowired
+	ISolisteRepository isr;
 	
 	
 	@GetMapping("creerConcert")
@@ -53,6 +70,38 @@ public class ConcertController {
 		public String modifierConcert(@ModelAttribute("concert")Concert c,@PathVariable("num")int num) {
 		icr.save(c);
 		return "redirect:/listeConcert";
+	}
+	
+	
+	//Infos concert
+	
+	@GetMapping("infoConcert/{num}")
+	public String infoConcert(@PathVariable("num") int num, Model m) {
+		
+		m.addAttribute("lieu", ilr.getLieuConcert(num));
+		
+		//Récupère oeuvres
+		List<Integer> listeIdOeuvre = ior.getOeuvreFromConcert(num);
+		List<Oeuvre> listeOeuvre = new ArrayList<>();
+		
+		for(int i=0; i<listeIdOeuvre.size(); i++) {
+			listeOeuvre.add(ior.getReferenceById(listeIdOeuvre.get(i)));
+		}
+		m.addAttribute("listeOeuvres", listeOeuvre);
+//		m.addAttribute("ListeOeuvres", ior.getOeuvreFromConcert(num));
+		
+		m.addAttribute("chefOrchestre", icor.getChefByConcert(num));
+		
+		//Récupère solistes
+		List<Integer> listeIdSoliste = isr.getSolistesByConcert(num);
+		List<Soliste> listeSoliste = new ArrayList<>();
+		
+		for(int i=0; i<listeIdSoliste.size(); i++) {
+			listeSoliste.add(isr.getReferenceById(listeIdSoliste.get(i)));
+		}
+		m.addAttribute("listeSolistes", listeSoliste);
+		
+	return "infoConcert";
 	}
 	
 }
