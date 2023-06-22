@@ -15,6 +15,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString.Exclude;
 
 @Entity
 @Table
@@ -32,17 +33,20 @@ public class Oeuvre {
 
 	@ManyToOne
 	@JoinColumn(name="numChef")
+	@Exclude
 	private ChefOrchestre chefOrchestre;
 
 	
 	@ManyToOne
 	@JoinColumn(name = "idConcert")
+	@Exclude
 	private Concert concert;
 
 
 	@ManyToMany
 	@JoinTable(name = "Soliste_oeuvre", joinColumns = @JoinColumn(name="idOeuvre"),
 	inverseJoinColumns = @JoinColumn(name="idSoliste"))
+	@Exclude
 	private List<Soliste> listeSoliste;
 
 

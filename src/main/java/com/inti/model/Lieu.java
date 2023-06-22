@@ -11,6 +11,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString.Exclude;
 
 @Entity
 @Table
@@ -26,6 +27,7 @@ public class Lieu {
 	private int nbrfaut;
 	
 	@OneToMany(mappedBy = "lieu")
+	@Exclude
 	private List<Concert> concerts;
 	
 	public Lieu(String nom, String numerue, int nbrfaut) {
