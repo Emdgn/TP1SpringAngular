@@ -47,7 +47,7 @@ public class Oeuvre {
 
 
 	
-	public Oeuvre(String nom, int duree) {
+	public Oeuvre(String nom, double duree) {
 		super();
 		this.nom = nom;
 		this.duree = duree;
