@@ -10,12 +10,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString.Exclude;
 
 @Entity
 @Table
@@ -31,10 +33,11 @@ public class Concert {
 
 	
 	@OneToMany(mappedBy = "concert")
+	@Exclude
 	private List<Oeuvre> listeO;
 	
 
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "lieu_id")
 	private Lieu lieu;
 
@@ -43,9 +46,8 @@ public class Concert {
 		super();
 		this.nom = nom;
 		this.date = date;
-
-
 	}
+	
 
 }
 
