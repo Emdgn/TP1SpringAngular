@@ -7,5 +7,5 @@ import com.inti.model.Lieu;
 
 @Repository
 public interface ILieuRepository extends JpaRepository<Lieu, Integer>{
-
+ 
 }

@@ -34,4 +34,4 @@ public class Lieu {
 		this.numerue = numerue;
 		this.nbrfaut = nbrfaut;
 	}
-}
+} 
