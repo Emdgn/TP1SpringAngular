@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../static/css/style.css">
+	<title>Accueil</title>
+</head>
+
+<body>
+
+	<div th:include="../static/menu.html"></div>
+
+	<h1>Concerts à venir</h1>
+
+<!--<p class="card">inizuerrrrrncin</p>-->
+
+	<div class="cards">
+		<div class="card" th:each="concert : ${ listeC }">
+			<img src="https://img.freepik.com/vecteurs-libre/affiche-nuit-musique-moderne-splash-abstrait_1361-1920.jpg?w=740&t=st=1687422760~exp=1687423360~hmac=7109ff1307ea28b3e13908f7fac86177ed67f7cc305fa759b86eb334684a679c"
+				alt="Affiche de concert">
+			<p th:text="${concert.nom}"></p>
+			<p th:text="${concert.date}"></p>
+			<p th:text="${concert.lieu.nom}"></p>
+			<div>
+				<a th:href="'ficheConcert/' + ${concert.num}">
+					<button type="button" class="btn btn-danger">Voir détails</button></a>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

@@ -1,5 +1,10 @@
-@charset "UTF-8";
-
 body{
 	background-color: #ceebfb ;
+}
+
+
+p.card {
+	display: flex;
+	background-color: red;
+	border: 2px solid grey;
 }
