@@ -21,6 +21,9 @@
 	      <th scope="col">Numéro Oeuvre</th>
 	      <th scope="col">Nom</th>
 	      <th scope="col">Durée</th>
+	      <th scope="col">Chef d'orchestre</th>
+	      <th scope="col">Concert</th>
+	      <th scope="col">Solistes</th>
 	      <th scope="col">Actions</th>
 	    </tr>
 	  </thead>
@@ -30,6 +33,9 @@
 	      <th scope="row" th:text="${oeuvre.numOeuvre}"></th>
 	      <td th:text="${oeuvre.nom}"></td>
 	      <td th:text="${oeuvre.duree}"></td>
+	      <td th:text="|${oeuvre.chefOrchestre.getNom()} ${oeuvre.chefOrchestre.getPrenom()}|"></td>
+	      <td th:text="${oeuvre.concert.getNom()}"></td>
+	      <td th:text="${oeuvre.ListeSoliste}"></td>
 	      <td>
 	      	<a th:href="'deleteOeuvre/' + ${ oeuvre.numOeuvre }"><button type="button" class="btn btn-danger">Supprimer</button></a>
 	      	<a th:href="'modifierOeuvre/' + ${ oeuvre.numOeuvre }"><button type="button" class="btn btn-primary">modifier</button></a>

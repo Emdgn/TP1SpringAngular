@@ -66,6 +66,7 @@ public class OeuvreController {
 	{
 		
 		m.addAttribute("listeO", ior.findAll());
+		System.out.println("liste Oeuvre : " + ior.findAll());
 		return "listeOeuvre";
 	}
 	

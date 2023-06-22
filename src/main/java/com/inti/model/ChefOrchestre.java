@@ -11,6 +11,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import lombok.NoArgsConstructor;
+import lombok.ToString.Exclude;
 
 
 @Entity
@@ -29,6 +30,7 @@ public class ChefOrchestre {
 	private String commentaires;
 	
 	@OneToMany(mappedBy = "chefOrchestre")
+	@Exclude
 	private List<Oeuvre>oeuvre;
 	
 	
