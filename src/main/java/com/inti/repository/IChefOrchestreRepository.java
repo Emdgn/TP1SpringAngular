@@ -12,7 +12,7 @@ import lombok.Value;
 @Repository
 public interface IChefOrchestreRepository extends JpaRepository<ChefOrchestre, Integer>{
 	
-	@Query(value="select * from chef_orchestre where num_chef = (select num_chef from oeuvre where id_concert = 1 limit 1)", nativeQuery = true)
+	@Query(value="select * from chef_orchestre where num_chef = (select num_chef from oeuvre where id_concert = :num limit 1)", nativeQuery = true)
 	ChefOrchestre getChefByConcert(@Param("num") int num);
 
 }
