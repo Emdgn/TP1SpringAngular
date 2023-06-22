@@ -14,6 +14,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString.Exclude;
 
 @NoArgsConstructor @AllArgsConstructor
 @Data
@@ -34,6 +35,7 @@ public class Soliste {
 	@ManyToMany
 	@JoinTable(name = "Soliste_oeuvre", joinColumns = @JoinColumn(name="idSoliste"),
 	inverseJoinColumns = @JoinColumn(name="idOeuvre"))
+	@Exclude
 	private List<Oeuvre> listeOeuvre;
 	
 	public Soliste(String nom, String prenom, LocalDate dateNaissance, String nationalite) {
