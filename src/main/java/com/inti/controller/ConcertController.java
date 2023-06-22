@@ -1,7 +1,11 @@
 package com.inti.controller;
 
+
 import java.util.ArrayList;
 import java.util.List;
+
+import java.time.LocalDate;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,15 +14,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.inti.model.Concert;
+
 import com.inti.model.Oeuvre;
 import com.inti.model.Soliste;
 import com.inti.repository.IChefOrchestreRepository;
+
+import com.inti.model.Lieu;
+
 import com.inti.repository.IConcertRepository;
 import com.inti.repository.ILieuRepository;
+
 import com.inti.repository.IOeuvreRepository;
 import com.inti.repository.ISolisteRepository;
+
 
 @Controller
 public class ConcertController {
@@ -27,27 +38,40 @@ public class ConcertController {
 	IConcertRepository icr;
 	@Autowired
 	ILieuRepository ilr;
+
 	@Autowired
 	IOeuvreRepository ior;
 	@Autowired
 	IChefOrchestreRepository icor;
 	@Autowired
 	ISolisteRepository isr;
+
 	
 	
 	@GetMapping("creerConcert")
-	public String ajoutConcert() {
-		return "creerConcert";
+	public String ajoutConcert(Model m) {
+		try {
+			m.addAttribute("listeL", ilr.findAll());
+			return "creerConcert";
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "creerConcert";
+		}
+		
 	}
 	
 	@PostMapping("creerConcert")
-	public String ajoutConcert(@ModelAttribute("concert")Concert c) {
+	public String ajoutConcert(@RequestParam("nom") String nom, @RequestParam("date") LocalDate date, @RequestParam("lieu") int idlieu ) {
+		Lieu l = ilr.getReferenceById(idlieu);
+		Concert c= new Concert(nom, date);
+		c.setLieu(l);
 		icr.save(c);
 		return "redirect:/listeConcert";
 	}
 	
 	@GetMapping("listeConcert")
 	public String Concert(Model m) {
+//		System.out.println(icr.findAll());
 		m.addAttribute("listeC", icr.findAll());
 		return "listeConcert";
 	}
