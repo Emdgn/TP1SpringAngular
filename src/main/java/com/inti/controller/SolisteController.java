@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.inti.model.Soliste;
+
 import com.inti.model.Soliste;
 import com.inti.repository.ISolisteRepository;
 
@@ -60,6 +60,11 @@ public class SolisteController {
 		}
 		
 		return false;
+	}
+	
+	@GetMapping("getSoliste/{idSoliste}")
+	public Soliste getSoliste(@PathVariable("idSoliste") int idSoliste) {
+		return isr.getReferenceById(idSoliste);
 	}
 
 //	@GetMapping("enregistrerSoliste")
