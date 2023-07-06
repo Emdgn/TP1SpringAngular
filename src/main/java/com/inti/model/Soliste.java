@@ -3,6 +3,7 @@ package com.inti.model;
 import java.time.LocalDate;
 import java.util.List;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -24,7 +25,8 @@ import lombok.ToString.Exclude;
 
 @Entity
 @Table
-@JsonIgnoreProperties({"hibernateLazyInitializer"})
+
+@JsonIgnoreProperties("hibernateLazyInitializer")
 public class Soliste {
 	
 	@Id
