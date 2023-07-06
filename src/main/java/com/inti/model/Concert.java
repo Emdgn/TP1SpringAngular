@@ -3,6 +3,9 @@ package com.inti.model;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,6 +25,7 @@ import lombok.ToString.Exclude;
 @Entity
 @Table
 @Data @AllArgsConstructor @NoArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 public class Concert {
 
 	@Id
@@ -31,12 +35,12 @@ public class Concert {
 	private LocalDate date;
 
 
-	
+	@JsonIgnore
 	@OneToMany(mappedBy = "concert")
 	@Exclude
 	private List<Oeuvre> listeO;
 	
-
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "lieu_id")
 	@Exclude

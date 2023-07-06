@@ -33,6 +33,7 @@ public class ChefOrchestre {
 	private double cachet;
 	private String commentaires;
 	
+	
 	@OneToMany(mappedBy = "chefOrchestre")
 	@Exclude
 	private List<Oeuvre>oeuvre;

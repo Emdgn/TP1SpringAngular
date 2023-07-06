@@ -2,6 +2,9 @@ package com.inti.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,6 +21,7 @@ import lombok.ToString.Exclude;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 public class Lieu {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,6 +30,8 @@ public class Lieu {
 	private String numerue;
 	private int nbrfaut;
 	
+	
+	@JsonIgnore
 	@OneToMany(mappedBy = "lieu")
 	@Exclude
 	private List<Concert> concerts;

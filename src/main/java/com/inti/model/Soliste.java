@@ -3,6 +3,9 @@ package com.inti.model;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,6 +24,7 @@ import lombok.ToString.Exclude;
 
 @Entity
 @Table
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 public class Soliste {
 	
 	@Id
@@ -31,7 +35,7 @@ public class Soliste {
 	private LocalDate dateNaissance;
 	private String nationalite;
 	
-	
+	@JsonIgnore
 	@ManyToMany
 	@JoinTable(name = "Soliste_oeuvre", joinColumns = @JoinColumn(name="idSoliste"),
 	inverseJoinColumns = @JoinColumn(name="idOeuvre"))
