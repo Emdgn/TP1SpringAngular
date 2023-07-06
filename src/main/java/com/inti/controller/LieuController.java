@@ -42,7 +42,7 @@ public class LieuController {
 	}
 	
 	@PutMapping("modifierLieu")
-	public boolean modifilrLieu(@RequestBody Lieu e)
+	public boolean modifierLieu(@RequestBody Lieu e)
 	{
 		if(ilr.getReferenceById(e.getId())!=null)
 		{
