@@ -1,6 +1,9 @@
 package com.inti.model;
 import java.time.LocalDate;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,6 +19,8 @@ import lombok.ToString.Exclude;
 @Entity
 @Table
 @Data @NoArgsConstructor @AllArgsConstructor
+
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 public class ChefOrchestre {
 
 	@Id
