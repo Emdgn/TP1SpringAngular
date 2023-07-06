@@ -1,12 +1,12 @@
 package com.inti.controller;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.inti.model.Lieu;
 
 import com.inti.repository.ILieuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-
-
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
+@CrossOrigin
+@JsonIgnoreProperties
 public class LieuController {
 
     @Autowired
